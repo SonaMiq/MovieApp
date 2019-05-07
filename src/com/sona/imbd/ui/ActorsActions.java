@@ -11,11 +11,7 @@ public class ActorsActions {
         Actors.addActor("Naomi", "Watts", "Englishman", "28/09/1968");
         Actors.addActor("Ewan", "McGregor", "Englishman", "31/03/1971");
         Actors.addActor("Tom", "Holland", "Englishman", "01/06/1996");
-    }
-
-    public void printActors() {
-        for (int i = 0; i < Actors.actors.size(); i++) {
-            System.out.println(Actors.actors.get(i).id + " " + Actors.actors.get(i).name + " " + Actors.actors.get(i).surname);
-        }
+        Actors.addActor("Emilia", "Clarck", "Englishman", "23/10/1986");
+        Actors.addActor("Eydan", "Gilen", "Irishman", "24/04/1968");
     }
 }

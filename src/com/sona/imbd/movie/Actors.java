@@ -25,5 +25,12 @@ public class Actors extends PeopleWorkedForFilm {
             return false;
         }
     }
+
+    public static String searchActorByID(int[] id) {
+        String actors = " ";
+        for (int i = 0; i < id.length; i++)
+            actors += Actors.actors.get(id[i]).name + " " + Actors.actors.get(id[i]).surname + " ";
+        return actors;
+    }
 }
 

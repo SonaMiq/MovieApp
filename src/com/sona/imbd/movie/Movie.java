@@ -1,6 +1,5 @@
 package com.sona.imbd.movie;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -11,6 +10,8 @@ public class Movie {
     public String title;
     public String description;
     public double rating;
+    public double sumRates;
+    public int ratersCount;
     public Date premierDate;
     public GanreType ganre;
     public int[] actorsID;
@@ -18,7 +19,6 @@ public class Movie {
     public int[] writersID;
 
     public Movie(String title, String description, Date premierDate, GanreType ganre, int[] actorsID, int[] directorsID, int[] writersID) {
-        this.rating=5;
         this.title = title;
         this.description = description;
         this.premierDate = premierDate;
@@ -26,7 +26,7 @@ public class Movie {
         this.actorsID = actorsID;
         this.directorsID = directorsID;
         this.writersID = writersID;
-        this.id=counter;
+        this.id = counter;
         counter++;
     }
 }

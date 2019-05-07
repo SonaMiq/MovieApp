@@ -25,4 +25,11 @@ public class Directors extends PeopleWorkedForFilm {
             return false;
         }
     }
+
+    public static String searchDirectorByID(int[] id) {
+        String directors = " ";
+        for (int i = 0; i < id.length; i++)
+            directors += Directors.directors.get(id[i]).name + " " + Directors.directors.get(id[i]).surname + " ";
+        return directors;
+    }
 }

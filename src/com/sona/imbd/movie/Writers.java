@@ -25,5 +25,11 @@ public class Writers extends PeopleWorkedForFilm {
             return false;
         }
     }
+    public static String searchWritersByID(int[] id) {
+        String writers = " ";
+        for (int i = 0; i < id.length; i++)
+            writers += Writers.writers.get(id[i]).name + " " + Writers.writers.get(id[i]).surname + " ";
+        return writers;
+    }
 }
 

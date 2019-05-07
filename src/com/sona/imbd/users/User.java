@@ -1,7 +1,8 @@
 package com.sona.imbd.users;
 
 import com.sona.imbd.movie.Movie;
-import com.sona.imbd.ui.MoviesActions;
+import com.sona.imbd.movie.Series;
+import com.sona.imbd.ui.PrintsActions;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -31,19 +32,32 @@ public class User {
         }
     }
 
-    public void rateMovie(int movieID, int rate) {
+    public double rateMovie(int movieID, int rate) {
+        double newRating = 0;
         for (int i = 0; i < Movie.movies.size(); i++)
             if (Movie.movies.get(i).id == movieID) {
-                Movie.movies.get(i).rating = (Movie.movies.get(i).rating + rate) / 2;
+                Movie.movies.get(i).ratersCount++;
+                Movie.movies.get(i).sumRates += rate;
+                newRating = Movie.movies.get(i).sumRates / Movie.movies.get(i).ratersCount;
+                Movie.movies.get(i).rating = newRating;
             }
+        return newRating;
     }
 
     public void searchMovie(String title) {
         for (int i = 0; i < Movie.movies.size(); i++)
             if (Movie.movies.get(i).title.equals(title))
-                MoviesActions.printMovie(Movie.movies.get(i));
+                PrintsActions.printMovie(Movie.movies.get(i));
+    }
+
+    public void searchMovieSeries(int movieId, int seasonId) {
+        for (int i = 0; i < Series.series.size(); i++)
+            if (Series.series.get(i).movieId == movieId)
+                if (Series.series.get(i).seasons == seasonId)
+                    PrintsActions.printMovie(Series.series.get(i));
     }
 }
+
 
 
 
